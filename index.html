@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Studio | Premium Family Salon & Bridal Lounge</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #c9a86a;
+            --gold-light: #e8d7b5;
+            --cream: #f8f5ef;
+            --soft: #f1ebe1;
+            --text: #2d2d2d;
+            --card: rgba(255,255,255,0.75);
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        .font-luxury {
+            font-family: 'Cinzel', serif;
+        }
+
+        .glass-nav {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(201,168,106,0.2);
+        }
+
+        .glass-card {
+            background: var(--card);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(201,168,106,0.18);
+            transition: 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .side-dock {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .dock-dot {
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .dock-dot.active {
+            background: var(--gold);
+            box-shadow: 0 0 15px rgba(201,168,106,0.7);
+        }
+
+        .dock-label {
+            position: absolute;
+            right: 18px;
+            top: -4px;
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .dock-dot:hover .dock-label {
+            opacity: 1;
+            right: 25px;
+        }
+
+        .reveal-btn span {
+            display: none;
+        }
+
+        .reveal-btn:hover span {
+            display: inline;
+        }
+
+        .reveal-btn:hover i {
+            display: none;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #b68b45, #e2c792, #b68b45);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Side Navigation -->
+    <nav class="side-dock hidden lg:flex">
+        <a href="#home" class="dock-dot active"><span class="dock-label">Home</span></a>
+        <a href="#services" class="dock-dot"><span class="dock-label">Services</span></a>
+        <a href="#bridal" class="dock-dot"><span class="dock-label">Bridal</span></a>
+        <a href="#contact" class="dock-dot"><span class="dock-label">Contact</span></a>
+    </nav>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 glass-nav px-8 py-5 flex justify-between items-center">
+
+        <div class="flex flex-col">
+            <span class="font-luxury text-2xl tracking-[0.3em] text-[#b68b45]">
+                HAIR STUDIO
+            </span>
+
+            <span class="text-[0.6rem] tracking-[0.5em] text-gray-500 uppercase">
+                Premium Family Salon
+            </span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/919171748888?text=Hi%20Hair%20Studio%2C%20I%20want%20to%20book%20an%20appointment"
+               class="reveal-btn bg-[#b68b45] text-white px-8 py-3 rounded-full font-bold text-xs uppercase transition-all hover:tracking-widest hover:scale-105">
+
+                <i>WhatsApp Booking</i>
+                <span>+91 91717 48888</span>
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-white/40 z-10"></div>
+
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=1920"
+                 class="w-full h-full object-cover scale-110"
+                 alt="Luxury Salon">
+        </div>
+
+        <div class="relative z-20 text-center px-4">
+
+            <h2 class="font-luxury text-6xl md:text-8xl mb-6 gold-gradient-text">
+                Excellence <br> Redefined
+            </h2>
+
+            <p class="max-w-xl mx-auto text-gray-700 font-light tracking-widest uppercase text-sm mb-10">
+                The most exclusive grooming destination in Erode
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+
+                <a href="#services"
+                   class="border border-[#b68b45] px-10 py-4 rounded-full text-xs uppercase tracking-widest hover:bg-[#b68b45] hover:text-white transition-all">
+
+                    Explore Menu
+                </a>
+
+                <a href="tel:9171748888"
+                   class="reveal-btn bg-white text-black px-10 py-4 rounded-full text-xs uppercase font-bold tracking-widest transition-all shadow-lg hover:scale-105">
+
+                    <i>Private Booking</i>
+                    <span>Call: 91717 48888</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+
+        <div class="text-center mb-20">
+
+            <span class="text-[#b68b45] tracking-[.4em] uppercase text-xs mb-4 block">
+                The Art of Grooming
+            </span>
+
+            <h3 class="font-luxury text-5xl mb-8">
+                Comprehensive Care Menu
+            </h3>
+
+            <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                Signature haircuts, luxury facials, bridal artistry and elite grooming experiences.
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="glass-card p-10 rounded-[2rem]">
+                <h4 class="font-luxury text-2xl mb-6">Gents Lounge</h4>
+
+                <ul class="space-y-4 text-sm text-gray-700">
+                    <li class="flex justify-between"><span>Haircut</span><span>₹100+</span></li>
+                    <li class="flex justify-between"><span>Beard Trim</span><span>₹59+</span></li>
+                    <li class="flex justify-between"><span>Facial</span><span>₹499+</span></li>
+                    <li class="flex justify-between"><span>Hair Spa</span><span>₹699+</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2rem]">
+                <h4 class="font-luxury text-2xl mb-6">Ladies Studio</h4>
+
+                <ul class="space-y-4 text-sm text-gray-700">
+                    <li class="flex justify-between"><span>Layer Cut</span><span>₹499+</span></li>
+                    <li class="flex justify-between"><span>Keratin</span><span>₹2999+</span></li>
+                    <li class="flex justify-between"><span>Hair Coloring</span><span>₹1999+</span></li>
+                    <li class="flex justify-between"><span>Smoothening</span><span>₹3499+</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2rem]">
+                <h4 class="font-luxury text-2xl mb-6">Skin & Nails</h4>
+
+                <ul class="space-y-4 text-sm text-gray-700">
+                    <li class="flex justify-between"><span>Hydra Facial</span><span>₹1499+</span></li>
+                    <li class="flex justify-between"><span>Pedicure</span><span>₹799+</span></li>
+                    <li class="flex justify-between"><span>Manicure</span><span>₹699+</span></li>
+                    <li class="flex justify-between"><span>Nail Extension</span><span>₹1999+</span></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Bridal -->
+    <section id="bridal" class="py-32 bg-[#efe7da]">
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+            <div>
+                <img src="https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=800"
+                     class="rounded-[3rem] shadow-2xl"
+                     alt="Bridal">
+            </div>
+
+            <div>
+
+                <h3 class="font-luxury text-5xl mb-8 gold-gradient-text">
+                    The Bridal Lounge
+                </h3>
+
+                <p class="text-gray-700 mb-10 leading-loose">
+                    Premium bridal makeup with luxury styling for your perfect day.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6 text-xs tracking-widest uppercase">
+
+                    <div>✦ HD Makeup</div>
+                    <div>✦ Airbrush</div>
+                    <div>✦ Saree Draping</div>
+                    <div>✦ Hair Styling</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 px-6">
+
+        <div class="max-w-5xl mx-auto glass-card rounded-[3rem] p-12 md:p-20 text-center">
+
+            <h3 class="font-luxury text-4xl mb-12">
+                Visit Our Studio
+            </h3>
+
+            <p class="text-xl text-gray-700 mb-8">
+                Near Carmel School, Erode, Tamil Nadu
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+
+                <a href="tel:9171748888"
+                   class="bg-[#b68b45] text-white px-10 py-4 rounded-full uppercase tracking-widest text-xs hover:scale-105 transition-all">
+
+                    Call Now
+                </a>
+
+                <a href="https://wa.me/919171748888?text=Hi%20Hair%20Studio%2C%20I%20want%20to%20book%20an%20appointment"
+                   class="bg-green-500 text-white px-10 py-4 rounded-full uppercase tracking-widest text-xs hover:scale-105 transition-all">
+
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center">
+
+        <div class="flex justify-center gap-8 mb-8">
+
+            <a href="https://www.instagram.com/hair_studio_thefamily_salon"
+               class="hover:text-[#b68b45] transition">
+
+                INSTAGRAM
+            </a>
+
+            <a href="https://wa.me/919171748888?text=Hi%20Hair%20Studio%2C%20I%20want%20to%20book%20an%20appointment"
+               class="hover:text-green-500 transition">
+
+                WHATSAPP
+            </a>
+
+        </div>
+
+        <p class="text-[0.6rem] text-gray-500 tracking-[0.4em] uppercase">
+            © 2026 Hair Studio. Crafted for Excellence.
+        </p>
+
+    </footer>
+
+    <script>
+        const dots = document.querySelectorAll('.dock-dot');
+        const sections = document.querySelectorAll('section');
+
+        window.onscroll = () => {
+            let current = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            dots.forEach((dot) => {
+                dot.classList.remove("active");
+
+                if (dot.href.includes(current)) {
+                    dot.classList.add("active");
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
