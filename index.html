@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Studio | Premium Family Salon & Bridal Lounge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --gold-light: #e2c792;
+            --bg-dark: #050505;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: #ffffff; 
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+        .font-luxury { font-family: 'Cinzel', serif; }
+        
+        /* Premium Glassmorphism */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Side Navigation Dock */
+        .side-dock {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .dock-dot {
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            position: relative;
+            transition: 0.3s;
+        }
+        .dock-dot:hover .dock-label { opacity: 1; right: 25px; }
+        .dock-dot.active { background: var(--gold); box-shadow: 0 0 15px var(--gold); }
+        .dock-label {
+            position: absolute;
+            right: 15px;
+            top: -4px;
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: 0.3s;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        /* Hidden Number Logic */
+        .reveal-btn span { display: none; }
+        .reveal-btn:hover span { display: inline; }
+        .reveal-btn:hover i { display: none; }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #c5a059, #f9f1d2, #c5a059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Side Navigation Dock -->
+    <nav class="side-dock hidden lg:flex">
+        <a href="#home" class="dock-dot active"><span class="dock-label">Home</span></a>
+        <a href="#services" class="dock-dot"><span class="dock-label">Services</span></a>
+        <a href="#bridal" class="dock-dot"><span class="dock-label">Bridal</span></a>
+        <a href="#reviews" class="dock-dot"><span class="dock-label">Reviews</span></a>
+        <a href="#contact" class="dock-dot"><span class="dock-label">Contact</span></a>
+    </nav>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 glass-nav px-8 py-5 flex justify-between items-center">
+        <div class="flex flex-col">
+            <span class="font-luxury text-2xl tracking-[0.3em] text-gold-light">HAIR STUDIO</span>
+            <span class="text-[0.6rem] tracking-[0.5em] text-gray-400 uppercase">Premium Family Salon</span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8">
+            <a href="https://wa.me/919092558888" class="reveal-btn bg-[#c5a059] text-black px-8 py-3 rounded-full font-bold text-xs uppercase transition-all hover:tracking-widest">
+                <i>Inquire Now</i>
+                <span>WhatsApp: +91 90925 58888</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover scale-110" alt="Luxury Salon">
+        </div>
+        
+        <div class="relative z-20 text-center px-4">
+            <h2 class="font-luxury text-6xl md:text-8xl mb-6 gold-gradient-text">Excellence <br> Redefined</h2>
+            <p class="max-w-xl mx-auto text-gray-300 font-light tracking-widest uppercase text-sm mb-10">The most exclusive grooming destination in Erode</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#services" class="border border-[#c5a059] px-10 py-4 rounded-full text-xs uppercase tracking-widest hover:bg-[#c5a059] hover:text-black transition-all">Explore Menu</a>
+                <a href="tel:9092558888" class="reveal-btn bg-white text-black px-10 py-4 rounded-full text-xs uppercase font-bold tracking-widest transition-all">
+                    <i>Private Booking</i>
+                    <span>Call: 90925 58888</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-center mb-20">
+            <div>
+                <span class="text-[#c5a059] tracking-[.4em] uppercase text-xs mb-4 block">The Art of Grooming</span>
+                <h3 class="font-luxury text-5xl mb-8">Comprehensive <br>Care Menu</h3>
+            </div>
+            <p class="text-gray-400 font-light leading-relaxed">From signature architecture-based haircuts to advanced skin therapies, our specialists provide a bespoke experience tailored to your unique persona.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Men's Grooming -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="w-12 h-[1px] bg-[#c5a059] mb-6"></div>
+                <h4 class="font-luxury text-2xl mb-6 italic">Gents Lounge</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Signature Fade</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Beard Architecture</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Scalp Detox Spa</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Grey Blending</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Face Rejuvenation</span> <span class="text-[#c5a059]">✦</span></li>
+                </ul>
+            </div>
+
+            <!-- Women's Styling -->
+            <div class="glass-card p-10 rounded-[2rem] scale-105 border-[#c5a059]/30">
+                <div class="w-12 h-[1px] bg-[#c5a059] mb-6"></div>
+                <h4 class="font-luxury text-2xl mb-6 italic">Ladies Studio</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Advanced Balayage</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Keratin Infusion</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Global Coloring</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Signature Layers</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Olaplex Treatment</span> <span class="text-[#c5a059]">✦</span></li>
+                </ul>
+            </div>
+
+            <!-- Skin & Nails -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="w-12 h-[1px] bg-[#c5a059] mb-6"></div>
+                <h4 class="font-luxury text-2xl mb-6 italic">Skin & Nails</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Hydra-Facial Luxe</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Gel Extensions</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Organic Pedicure</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Body Polishing</span> <span class="text-[#c5a059]">✦</span></li>
+                    <li class="flex justify-between border-b border-white/5 pb-2"><span>Micro-Blading</span> <span class="text-[#c5a059]">✦</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridal Highlight -->
+    <section id="bridal" class="py-32 bg-[#080808]">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative group">
+                <img src="https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=800" class="rounded-[3rem] grayscale hover:grayscale-0 transition-all duration-700" alt="Bridal">
+                <div class="absolute -bottom-10 -right-10 bg-[#c5a059] p-12 rounded-full hidden lg:block">
+                    <p class="text-black font-luxury text-xl">1000+</p>
+                    <p class="text-black text-[0.6rem] uppercase font-bold">Brides Styled</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-luxury text-5xl mb-8 gold-gradient-text">The Bridal <br>Lounge</h3>
+                <p class="text-gray-400 mb-10 leading-loose">Specializing in high-definition bridal makeup and traditional elegance. Our private bridal suite ensures you have the serenity you deserve on your big day.</p>
+                <div class="grid grid-cols-2 gap-6 text-xs tracking-widest uppercase">
+                    <div class="flex items-center gap-3"><span class="w-2 h-2 bg-[#c5a059] rounded-full"></span> HD Makeup</div>
+                    <div class="flex items-center gap-3"><span class="w-2 h-2 bg-[#c5a059] rounded-full"></span> Airbrush Tech</div>
+                    <div class="flex items-center gap-3"><span class="w-2 h-2 bg-[#c5a059] rounded-full"></span> Saree Draping</div>
+                    <div class="flex items-center gap-3"><span class="w-2 h-2 bg-[#c5a059] rounded-full"></span> Hair Extension</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-32 bg-[#050505] px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="font-luxury text-4xl mb-16">Client Testimonials</h3>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="italic text-gray-400 relative">
+                    <span class="text-6xl text-[#c5a059] absolute -top-10 -left-4 opacity-20">"</span>
+                    <p class="relative z-10">Really satisfying and felt very relaxed with the service and very friendly staffs.</p>
+                    <cite class="block mt-6 text-[#c5a059] not-italic font-bold tracking-widest text-xs">— VARSHA</cite>
+                </div>
+                <div class="italic text-gray-400 relative">
+                    <span class="text-6xl text-[#c5a059] absolute -top-10 -left-4 opacity-20">"</span>
+                    <p class="relative z-10">Service is so good... customer is too friendly... ambience is good... price is reasonable.</p>
+                    <cite class="block mt-6 text-[#c5a059] not-italic font-bold tracking-widest text-xs">— SAKTHI VEL</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Reveal -->
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto glass-card rounded-[3rem] p-12 md:p-20 text-center">
+            <h3 class="font-luxury text-4xl mb-12">Visit Our Studio</h3>
+            <div class="grid md:grid-cols-2 gap-12 text-left items-center">
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-[#c5a059] uppercase text-[0.6rem] tracking-[0.3em] mb-2">Location</p>
+                        <p class="text-xl text-gray-300">19 JJ Avenue Gandhiji street, Karur Rd, near Carmel School, Sakthi Nagar, Kollampalayam, Erode, Tamil Nadu 638002</p>
+                    </div>
+                    <div>
+                        <p class="text-[#c5a059] uppercase text-[0.6rem] tracking-[0.3em] mb-4">Direct Contact</p>
+                        <a href="tel:9092558888" class="reveal-btn block bg-white/5 border border-white/10 px-6 py-4 rounded-xl transition-all hover:bg-[#c5a059]/20">
+                            <span class="text-lg">Call: 90925 58888</span>
+                            <i class="text-gray-500 uppercase text-xs tracking-widest">Click to reveal primary line</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="h-64 bg-neutral-900 rounded-[2rem] flex items-center justify-center border border-white/5 overflow-hidden">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.642106093259!2d77.73721901115317!3d11.323229348126938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f951a753bdb%3A0x2e7565b92524e313!2sHair%20Studio%20-The%20Family%20Salon!5e0!3m2!1sen!2sin!4v1715672800000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center">
+        <div class="flex justify-center gap-8 mb-8 opacity-50">
+            <a href="https://www.instagram.com/hair_studio_thefamily_salon" class="hover:text-[#c5a059] transition text-xs tracking-widest">INSTAGRAM</a>
+            <a href="#" class="hover:text-[#c5a059] transition text-xs tracking-widest">FACEBOOK</a>
+        </div>
+        <p class="text-[0.6rem] text-gray-600 tracking-[0.4em] uppercase">© 2026 Hair Studio. Crafted for Excellence.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll and active dot update
+        const dots = document.querySelectorAll('.dock-dot');
+        const sections = document.querySelectorAll('section');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            dots.forEach((dot) => {
+                dot.classList.remove("active");
+                if (dot.getAttribute('href') === `#${current}`) {
+                    dot.classList.add("active");
+                }
+            });
+        };
+    </script>
+</body>
+</html>
